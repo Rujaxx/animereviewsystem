@@ -1,7 +1,7 @@
 const ANIAPI = require("@mattplays/aniapi");
 const asyncHandler = require('../middleware/async')
 const ErrorResponse = require('../utils/errorResponse')
-const API = new ANIAPI.API("DUMMY_JWT");
+const API = new ANIAPI.API(process.env.JWT_TOKEN);
 const Review = require('../models/Review')
 
 // @desc      Add a review
@@ -44,8 +44,8 @@ exports.getOne = asyncHandler(async (req,res,next) => {
     res.status(200).json({ success : true , data : anime , reviews : reviews})
 })
 
-// @desc      GET anime
-// @route     GET /api/v1/anime
+// @desc      GET anime by title
+// @route     GET /api/v1/anime/title
 // @access    Private
 exports.getAnimeByTitle = asyncHandler(async (req,res,next) => {
     console.log(req.query.title)
@@ -56,7 +56,7 @@ exports.getAnimeByTitle = asyncHandler(async (req,res,next) => {
     res.status(200).json({ success : true , data : animes})
 })
 
-// @desc      GET anime
+// @desc      GET anime and by genre
 // @route     GET /api/v1/anime
 // @access    Private
 exports.getAnime = asyncHandler(async (req,res,next) => {
