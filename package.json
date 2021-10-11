@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/Rujaxx/animereviewsystem#readme",
   "dependencies": {
+    "@mattplays/aniapi": "^1.1.2",
     "bcryptjs": "^2.4.3",
     "cookie-parser": "^1.4.5",
     "dotenv": "^10.0.0",
