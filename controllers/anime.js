@@ -48,7 +48,6 @@ exports.getOne = asyncHandler(async (req,res,next) => {
 // @route     GET /api/v1/anime/title
 // @access    Private
 exports.getAnimeByTitle = asyncHandler(async (req,res,next) => {
-    console.log(req.query.title)
     const animes = await API.Anime.Get({
         title : req.query.title,
         per_page : 20
@@ -60,10 +59,17 @@ exports.getAnimeByTitle = asyncHandler(async (req,res,next) => {
 // @route     GET /api/v1/anime
 // @access    Private
 exports.getAnime = asyncHandler(async (req,res,next) => {
-    console.log(req.query.title)
-    const animes = await API.Anime.Get({
+    let animes
+    if(!req.query.genres){
+        animes = await API.Anime.Get({
+            per_page : 20
+        })
+    }else{
+        animes = await API.Anime.Get({
         genres : req.query.genres,
         per_page : 20
     })
+    }
+    
     res.status(200).json({ success : true , data : animes})
 })

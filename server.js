@@ -27,7 +27,6 @@ const app = express()
 //Body Parser
 app.use(express.json())
 app.use(express.urlencoded({extended: false}))
-app.use(cors)
 
 // Cookie parser
 app.use(cookieParser());
@@ -65,6 +64,10 @@ app.use(errorHandler);
 //Mount routers
 app.use('/api/v1/auth', auth)
 app.use('/api/v1/anime', anime)
+
+app.get('/',(req,res)=>
+  res.send()  
+)
 
 const PORT = process.env.PORT || 8000
 
