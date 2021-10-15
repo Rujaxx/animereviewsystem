@@ -1,6 +1,6 @@
 const ANIAPI = require("@mattplays/aniapi");
-const asyncHandler = require('../middleware/async')
 const ErrorResponse = require('../utils/errorResponse')
+const asyncHandler = require('../middleware/async')
 const API = new ANIAPI.API(process.env.JWT_TOKEN);
 const Review = require('../models/Review')
 

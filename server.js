@@ -58,12 +58,13 @@ app.use(hpp())
 // Enable CORS
 app.use(cors())
 
-//Error Handler
-app.use(errorHandler);
 
 //Mount routers
 app.use('/api/v1/auth', auth)
 app.use('/api/v1/anime', anime)
+
+//Error Handler
+app.use(errorHandler);
 
 app.get('/',(req,res)=>
   res.send()  
